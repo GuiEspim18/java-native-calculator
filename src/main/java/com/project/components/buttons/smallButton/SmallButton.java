@@ -5,8 +5,9 @@ import java.awt.*;
 
 public class SmallButton extends JButton {
 
-    public SmallButton() {
-        setPreferredSize(new Dimension(50, 50));
+    public SmallButton(String item) {
+        super(item);
+        setPreferredSize(new Dimension(75, 75));
     }
 
 }
