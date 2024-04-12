@@ -1,5 +1,6 @@
 package com.project.components.numbers;
 
+import com.project.components.buttons.mediumButton.MediumButton;
 import com.project.components.buttons.smallButton.SmallButton;
 
 import javax.swing.*;
@@ -18,5 +19,6 @@ public class Numbers extends JPanel {
             SmallButton smallButton = new SmallButton(item);
             add(smallButton);
         }
+        add(new MediumButton((",")));
     }
 }
