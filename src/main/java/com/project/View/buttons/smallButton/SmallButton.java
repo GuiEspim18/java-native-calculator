@@ -1,4 +1,4 @@
-package com.project.components.buttons.smallButton;
+package com.project.View.buttons.smallButton;
 
 import javax.swing.*;
 import java.awt.*;

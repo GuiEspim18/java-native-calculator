@@ -1,6 +1,6 @@
-package com.project;
+package com.project.Main;
 
-import com.project.windows.mainWindow.MainWindow;
+import com.project.View.mainWindow.MainWindow;
 
 public class App {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.project.utils.colors;
+package com.project.Model.colors;
 
 import java.awt.*;
 

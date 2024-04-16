@@ -1,7 +1,6 @@
-package com.project.windows.mainWindow;
+package com.project.View.mainWindow;
 
-import com.project.components.numbers.Numbers;
-import com.project.components.symbols.Symbols;
+import com.project.View.ButtonsHolder.ButtonsHolder;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,10 +14,7 @@ public class MainWindow extends JFrame {
         setTitle("Calculator");
         setLayout(new FlowLayout());
 
-        Numbers numbers = new Numbers();
-        add(numbers, BorderLayout.NORTH);
-
-        Symbols symbols = new Symbols();
-        add(symbols);
+        ButtonsHolder buttons = new ButtonsHolder();
+        add(buttons);
     }
 }
