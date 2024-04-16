@@ -1,4 +1,4 @@
-package com.project.components.buttons.mediumButton;
+package com.project.View.buttons.mediumButton;
 
 import javax.swing.*;
 import java.awt.*;
