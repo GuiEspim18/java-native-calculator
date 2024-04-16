@@ -2,6 +2,7 @@ package com.project.windows.mainWindow;
 
 import com.project.components.numbers.Numbers;
 import com.project.components.symbols.Symbols;
+import com.project.components.visor.Visor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,10 +16,16 @@ public class MainWindow extends JFrame {
         setTitle("Calculator");
         setLayout(new FlowLayout());
 
+        Visor visor = new Visor();
+        add(visor);
+
+        JPanel panel = new JPanel();
+        add(panel);
+
         Numbers numbers = new Numbers();
-        add(numbers, BorderLayout.NORTH);
+        panel.add(numbers, BorderLayout.NORTH);
 
         Symbols symbols = new Symbols();
-        add(symbols);
+        panel.add(symbols);
     }
 }

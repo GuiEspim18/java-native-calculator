@@ -19,6 +19,7 @@ public class Numbers extends JPanel {
             SmallButton smallButton = new SmallButton(item);
             add(smallButton);
         }
-        add(new MediumButton((",")));
+        add(new SmallButton((",")));
+        add(new SmallButton(("=")));
     }
 }
