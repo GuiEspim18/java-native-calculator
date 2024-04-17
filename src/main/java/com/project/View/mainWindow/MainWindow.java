@@ -19,9 +19,8 @@ public class MainWindow extends JFrame {
 
         Visor visor = new Visor();
         add(visor, BorderLayout.NORTH);
-        visor.setText("Teste de text");
 
-        ButtonsHolder buttons = new ButtonsHolder();
+        ButtonsHolder buttons = new ButtonsHolder(visor);
         add(buttons);
     }
 }
