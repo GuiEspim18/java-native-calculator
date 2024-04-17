@@ -26,21 +26,29 @@ public class Visor extends JPanel {
     public void setText(String value) {
         String[] operationValues = {"+", "-", "x", "÷", "."};
         if (visorValue.length() < 29 && value != "=") {
-            if (!visorValue.isEmpty()) {
-                String lastChar = Character.toString(visorValue.charAt(visorValue.length() - 1));
-                if (Arrays.asList(operationValues).contains(value) && Arrays.asList(operationValues).contains(lastChar)) {
-                    visorValue = visorValue.substring(0, visorValue.length() - 1) + value;
+            switch (value) {
+                case "ac":
+                    visorValue = "";
                     text.setText(visorValue);
-                } else {
-                    visorValue += value;
-                    text.setText(visorValue);
-                }
-            } else {
-                visorValue += value;
-                text.setText(visorValue);
+                    break;
+                default:
+                    if (!visorValue.isEmpty()) {
+                        String lastChar = Character.toString(visorValue.charAt(visorValue.length() - 1));
+                        if (Arrays.asList(operationValues).contains(value) && Arrays.asList(operationValues).contains(lastChar)) {
+                            visorValue = visorValue.substring(0, visorValue.length() - 1) + value;
+                            text.setText(visorValue);
+                        } else {
+                            visorValue += value;
+                            text.setText(visorValue);
+                        }
+                    } else {
+                        visorValue += value;
+                        text.setText(visorValue);
+                    }
+                    break;
             }
         } else {
-            System.out.println("operation");
+
         }
     }
 
