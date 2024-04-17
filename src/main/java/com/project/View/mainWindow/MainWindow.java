@@ -20,7 +20,8 @@ public class MainWindow extends JFrame {
         Visor visor = new Visor();
         add(visor, BorderLayout.NORTH);
 
-        ButtonsHolder buttons = new ButtonsHolder(visor);
-        add(buttons);
+        ButtonsHolder buttons = new ButtonsHolder(visor); // esse é o jpanel quem está numa classe chamada ButtonsHolder que extends JPanel
+//        buttons.setPreferredSize(new Dimension(400, 400));
+        add(buttons, BorderLayout.CENTER);
     }
 }
