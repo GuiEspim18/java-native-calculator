@@ -1,7 +1,6 @@
 package com.project.View.ButtonsHolder;
 
 import com.project.View.Visor.Visor;
-import com.project.View.buttons.mediumButton.MediumButton;
 import com.project.View.buttons.smallButton.SmallButton;
 
 import javax.swing.*;
@@ -15,8 +14,10 @@ public class ButtonsHolder extends JPanel {
         setBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1));
         setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
-        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.fill = GridBagConstraints.BOTH;
         constraints.insets = new Insets(1, 1, 1, 1);
+        constraints.weightx = 1;
+        constraints.weighty = 1;
         int position = 0;
         int line = 0;
         for (String value : values) {
