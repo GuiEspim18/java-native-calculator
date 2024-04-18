@@ -7,6 +7,7 @@ public class Colors {
     public static final Color BACKGROUND = hexToColor("#F5F5F5");
     public static final Color DARK_GREY = hexToColor("#A1A1A1");
     public static final Color LIGHT_GREY = hexToColor("#F0F0F0");
+    public static final Color ULTRA_DARK_GREY = hexToColor("#121212");
 
     private static Color hexToColor(String hex) {
         return new Color(

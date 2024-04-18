@@ -9,7 +9,8 @@ import java.util.Arrays;
 public class Visor extends JPanel {
 
     JTextArea text;
-    String visorValue = "";
+    String visorValue = "0";
+    String[] operationValues = {"+", "-", "x", "÷", ".", "%", "+/-"};
 
     public Visor() {
         setPreferredSize(new Dimension(0, 90));
@@ -20,35 +21,76 @@ public class Visor extends JPanel {
         text.setSize(0, 50);
         text.setFont(new Font("Arial", Font.PLAIN, 20));
         text.setBackground(Colors.LIGHT_GREY);
-        add(text);
+        text.setText(visorValue);
+
+        JScrollPane scroll = new JScrollPane(text);
+        scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        add(scroll);
     }
 
     public void setText(String value) {
-        String[] operationValues = {"+", "-", "x", "÷", "."};
-        if (visorValue.length() < 29 && value != "=") {
-            switch (value) {
-                case "ac":
-                    visorValue = "";
+        switch (value) {
+            case "ac":
+                visorValue = "0";
+                text.setText(visorValue);
+                break;
+            case "+/-":
+                break;
+            default:
+                addChar(value);
+                break;
+        }
+    }
+
+    private boolean verifyLasChar(String value) {
+        String lastChar;
+        if (!visorValue.equals("0")) {
+            lastChar = Character.toString(visorValue.charAt(visorValue.length() - 1));
+        } else {
+            lastChar = value;
+        }
+        return Arrays.asList(operationValues).contains(value) && Arrays.asList(operationValues).contains(lastChar);
+    }
+
+    private boolean isLastValueIsEquals(String value) {
+        if (!visorValue.equals("0") && visorValue.length() != 1) {
+            String lastChar = Character.toString(visorValue.charAt(visorValue.length() - 1));
+            return lastChar.equals(value);
+        }
+        return false;
+     }
+
+    private void addChar(String value) {
+        if (visorValue.length() < 19 && !value.equals("=")) {
+            boolean isAnOperationChar = verifyLasChar(value);
+            if (!visorValue.equals("0")) {
+                if (isAnOperationChar) {
+                    visorValue = visorValue.substring(0, visorValue.length() - 1) + value;
                     text.setText(visorValue);
-                    break;
-                default:
-                    if (!visorValue.isEmpty()) {
-                        String lastChar = Character.toString(visorValue.charAt(visorValue.length() - 1));
-                        if (Arrays.asList(operationValues).contains(value) && Arrays.asList(operationValues).contains(lastChar)) {
-                            visorValue = visorValue.substring(0, visorValue.length() - 1) + value;
-                            text.setText(visorValue);
-                        } else {
-                            visorValue += value;
-                            text.setText(visorValue);
-                        }
-                    } else {
-                        visorValue += value;
-                        text.setText(visorValue);
-                    }
-                    break;
+                } else {
+                    visorValue += value;
+                    text.setText(visorValue);
+                }
+            } else {
+                if (!isAnOperationChar) {
+                    removeDefaultValue();
+                    visorValue += value;
+                    text.setText(visorValue);
+                }
             }
         } else {
 
+        }
+    }
+
+    private String getLastNumber() {
+
+        return "";
+    }
+
+    private void removeDefaultValue() {
+        if (visorValue.length() == 1 && visorValue.equals("0")) {
+            visorValue = "";
         }
     }
 
