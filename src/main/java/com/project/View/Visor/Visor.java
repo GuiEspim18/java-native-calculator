@@ -61,7 +61,7 @@ public class Visor extends JPanel {
      }
 
     private void addChar(String value) {
-        if (visorValue.length() < 19 && !value.equals("=")) {
+        if (!value.equals("=")) {
             boolean isAnOperationChar = verifyLasChar(value);
             if (!visorValue.equals("0")) {
                 if (isAnOperationChar) {
